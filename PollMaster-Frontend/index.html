@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PollMaster</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <b>PollMaster</b>
+        <button id="logout" hidden>Log out</button>
+    </header>
+
+    <main>
+
+        <!-- Login and Signup Section -->
+        <section id="auth" class="card">
+
+            <h1 id="title">Create account</h1>
+            <p id="desc">Sign up to use PollMaster.</p>
+
+            <nav>
+                <button id="su" class="active">Sign up</button>
+                <button id="si">Sign in</button>
+            </nav>
+
+            <form id="authForm">
+
+                <div id="nameBox">
+                    <label>Name</label>
+                    <br>
+                    <input id="name" required>
+                    <br>
+                </div>
+
+                <label>Email</label>
+                <br>
+                <input id="email" type="email" required>
+                <br>
+
+                <label>Password</label>
+                <br>
+                <input id="password" type="password" minlength="8" required>
+                <br>
+
+                <button class="primary" id="authBtn">
+                    Create account
+                </button>
+
+            </form>
+
+            <p id="authMsg"></p>
+
+        </section>
+
+        <!-- Poll Dashboard -->
+        <section id="dash" hidden>
+
+            <h1>Poll dashboard</h1>
+
+            <!-- Create Poll -->
+            <section class="card">
+
+                <h2>Create a poll</h2>
+
+                <form id="create">
+
+                    <label>Question</label>
+                    <input id="question" required>
+
+                    <label>Option 1</label>
+                    <input class="opt" required>
+
+                    <label>Option 2</label>
+                    <input class="opt" required>
+
+                    <label>Option 3 (optional)</label>
+                    <input class="opt">
+
+                    <label>Option 4 (optional)</label>
+                    <input class="opt">
+
+                    <button class="primary">
+                        Create poll
+                    </button>
+
+                </form>
+
+                <p id="createMsg"></p>
+
+            </section>
+
+            <!-- Available Polls -->
+            <section class="card">
+
+                <h2>Polls</h2>
+
+                <button id="refresh">Refresh</button>
+
+                <div id="polls">
+                    Loading…
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="http://localhost:5001/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "PollMaster API",
+  "dateExported": "2026-10-01T00:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "pm-health",
+      "colId": "pollmaster",
+      "name": "Health",
+      "url": "http://localhost:5001/health",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "pm-register",
+      "colId": "pollmaster",
+      "name": "Register",
+      "url": "http://localhost:5001/api/auth/register",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"name\":\"Test User\",\"email\":\"test@example.com\",\"password\":\"test1234\"}"
+      },
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "pm-login",
+      "colId": "pollmaster",
+      "name": "Login",
+      "url": "http://localhost:5001/api/auth/login",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"email\":\"test@example.com\",\"password\":\"test1234\"}"
+      },
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "pm-create-poll",
+      "colId": "pollmaster",
+      "name": "Create Poll (add Bearer token)",
+      "url": "http://localhost:5001/api/polls",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"question\":\"Favorite programming language?\",\"options\":[\"JavaScript\",\"Python\",\"Java\"]}"
+      },
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "pm-firebase-login",
+      "colId": "pollmaster",
+      "name": "Firebase ID Token Exchange",
+      "url": "http://localhost:5001/api/auth/firebase",
+      "method": "POST",
+      "sortNum": 50000,
+      "created": "2026-10-04T00:00:00.000Z",
+      "modified": "2026-10-04T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"idToken\":\"PASTE_REAL_FIREBASE_ID_TOKEN\"}"
+      },
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "pm-fcm-save",
+      "colId": "pollmaster",
+      "name": "Save FCM Device Token (Bearer JWT)",
+      "url": "http://localhost:5001/api/notifications/token",
+      "method": "POST",
+      "sortNum": 51000,
+      "created": "2026-10-04T00:00:00.000Z",
+      "modified": "2026-10-04T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer YOUR_POLLMASTER_JWT"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"fcmToken\":\"PASTE_REAL_DEVICE_FCM_REGISTRATION_TOKEN\"}"
+      },
+      "params": [],
+      "tests": []
+    }
+  ]
+}
